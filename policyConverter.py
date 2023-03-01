@@ -14,7 +14,7 @@ for line in fileLines:
     startYear, startMonth, startDay = int(startYear), int(startMonth), int(startDay)
     endYear, endMonth, endDay = int(endYear), int(endMonth), int(endDay)
     premiumAmt = int(premiumAmt)
-    # Calculates number of days in the given time span and the dailyEarnings
+    # Calculates number of days in the given time span and the dailyEarnings (assuming a policy always spans two months)
     numOfDays = (endYear-startYear)*365 + (endMonth-startMonth)*365/12 + (endDay-startDay)
     dailyEarning = premiumAmt/numOfDays
     # Algorithm to determine how many times to loop
