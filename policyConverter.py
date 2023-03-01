@@ -3,7 +3,7 @@ fileLines = file.readlines()
 
 # Prints out header for policies
 print("{:15}{:15}{:15}".format("policyNumber","monthEarned","amountEarned"))
-# Iterates through
+# Iterates through each policy
 for line in fileLines:
     line.replace("\n","")
     # Extracts information for each policy
@@ -21,14 +21,16 @@ for line in fileLines:
     numLoops = (endYear-startYear)*12 + (endMonth-startMonth)
     # List of number of days in each month
     numOfDaysList = [31,28,31,30,31,30,31,31,30,31,30,31]
-
-    # Loops through each month
+    # Iterates through each month
     for i in range(startMonth,startMonth+numLoops+1):
         # Sets the correct monthly pay accounting for edge cases
+        # First month of the policy
         if i == startMonth:
             monthlyPay = (numOfDaysList[i-1]-startDay+1)*dailyEarning
+        # Last month of the policy
         elif i == startMonth+numLoops:
             monthlyPay = endDay*dailyEarning
+        # General case
         else:
             monthlyPay = dailyEarning*numOfDaysList[i%12-1]
         # Makes string of the date
