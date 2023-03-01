@@ -22,6 +22,7 @@ for line in fileLines:
     # List of number of days in each month
     numOfDaysList = [31,28,31,30,31,30,31,31,30,31,30,31]
 
+    # Loops through each month
     for i in range(startMonth,startMonth+numLoops+1):
         # Sets the correct monthly pay accounting for edge cases
         if i == startMonth:
@@ -32,6 +33,7 @@ for line in fileLines:
             monthlyPay = dailyEarning*numOfDaysList[i%12-1]
         # Makes string of the date
         date = str(startYear+((i-1)//12))+" "+str((i-1)%12+1)
+        # Formats all of the data
         print("{:15}{:15}${:.2f}".format(policyNum,date,monthlyPay))
     print("")
 
